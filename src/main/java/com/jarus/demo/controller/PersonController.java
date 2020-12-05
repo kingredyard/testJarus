@@ -26,6 +26,7 @@ public class PersonController {
 
 
     @GetMapping()
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<List<PersonDTO>> getPersonsBySearch(@RequestParam(value = "firstName",required = false) String firstName, @RequestParam(value = "lastName",required = false) String lastName,
                                                               final HttpServletRequest request)  {
 
@@ -33,6 +34,7 @@ public class PersonController {
     }
 
     @GetMapping("/additionalInsured/{id}")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<PersonInsureDTO> getAdditionalInsuredByPersonId(@PathVariable("id" ) Long id)  {
 
         return  ResponseEntity.ok(this.personService.getPersonInsuranceDTO(id));
